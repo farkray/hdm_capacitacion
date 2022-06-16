@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 #header .logo img {
-  max-height: 40px;
+  max-height: 125px;
 }
 @media (max-width: 992px) {
   #header {
@@ -648,7 +648,7 @@ section {
 # Cta
 --------------------------------------------------------------*/
 .cta {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/cta-bg.jpg") fixed center center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/capacitacion-empresarial-experiencias-unicas.webp") fixed center center;
   background-size: cover;
   padding: 120px 0;
 }
@@ -1341,3 +1341,19 @@ section {
 #footer .credits a:hover {
   color: #EF7F33;
 }
+
+.padre {
+    display: flex;
+    align-items: center;
+}
+
+.certifica img{
+  width: 200px;
+}
+
+@media (max-width: 678px) {
+  .certifica img {
+    width: 100px;
+  }
+}
+
