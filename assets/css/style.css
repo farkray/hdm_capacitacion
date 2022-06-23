@@ -734,7 +734,7 @@ section {
   border-bottom: 1px solid #e7e7e7;
   overflow: hidden;
   background: #fff;
-  height: 140px;
+  height: 140px !important;
 }
 .clients .client-logo:hover img {
   transform: scale(1.1);
@@ -1357,3 +1357,41 @@ section {
   }
 }
 
+.icon-img {
+  height: 25%;
+  width: auto;
+  margin-bottom: 30px;
+}
+
+.icon-img-complete{
+  float: left;
+  padding-right: 10px;
+  margin-bottom: 30px;
+  height: 90px !important;
+  width: auto !important;
+}
+
+.h4{
+  font-size: 22px !important;
+  font-weight: bold;
+  color: black !important;
+}
+
+.logo-footer{
+  width: 200px;
+  height: auto;
+}
+
+.no-show {
+  display: none;
+}
+
+.img-fluid {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.logo-header {
+  width: 100px;
+  height: auto;
+}
