@@ -1,41 +1,37 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+//landings
+$landing = 'https://hdm.company/capacitacion-empresarial';
+$correo_envio = 'krayem.farid@gmail.com';
+//Elementos capturados por POST
+$nombre =   isset( $_POST['name'] ) ? $_POST['name'] : '';
+$mensaje =  isset( $_POST['mensaje'] ) ? $_POST['mensaje'] : '';
+$correo =  isset( $_POST['email'] ) ? $_POST['email'] : '';
+$caso =  isset( $_POST['subjet'] ) ? $_POST['subjet'] : '';
+$asunto =   'Mensaje de la landing page HDM';
+  $contenido = '
+  						<html>
+  						<head>
+  							<title></title>
+  						</head>
+  						<body>
+  							 <h2>Haz recibido un mensaje através de la página que creaste con Mercabits y</h2>
+  							 <p><b>'.$nombre.'</b> te ha enviado el siguiente mensaje:</p>
+                 <br>
+  							 <p><b>'.$mensaje.',</p><p><br>
+                Su correo es: <b>'.$correo.'</b>,<br> y su caso es: <b>'.$caso.'</b> </p>
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'hola@hd.company';
+  						</body>
+  						</html>';
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+// Configuración de los encabezados
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= "Content-type: text/html; charset=UTF-8\r\n";
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+// Enviar correo
+$envio = mail($correo_envio, $asunto, $contenido, $headers);
 
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
-
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
-
-  echo $contact->send();
-?>
+  if (mail($asunto, utf8_decode($mensaje)))
+  echo "<script type='text/javascript'>alert('Tu mensaje ha sido enviado exitosamente');
+  </script>";
+  echo "<script type='text/javascript'>window.location.href='" . $landing . "';</script>";
+ ?>
